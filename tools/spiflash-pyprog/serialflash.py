@@ -631,12 +631,16 @@ class _Gen25FlashDevice(_SpiFlashDevice):
         if not isinstance(data, (bytes, bytearray)):
             data = bytes(data)
         pos = 0
+        pcntNext = 5;
         page_size = self.get_size('page')
         while pos < length:
             size = min(length-pos, page_size)
             self._write(address, data[pos:pos+size])
             address += size
             pos += size
+            if((100*pos/length) > pcntNext):
+                pcntNext = pcntNext + 5;
+                print("   %d%%" % (100*pos/length))
 
     def _read_status(self) -> int:
         read_cmd = bytes((self.CMD_READ_STATUS,))
