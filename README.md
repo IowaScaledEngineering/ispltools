@@ -20,18 +20,18 @@ sudo apt update
 sudo apt install python3.11 python3.11-venv
 ```
 
-Now, set up that venv and activate it.  I build mine in the sbplus/tools directory, so it's ckt-dingdong/src/sbplus/tools/sbp-venv...
+Now, set up that venv and activate it.  I build mine in the ispl-venv directory...
 
 ```
-python3.11 -m venv sbp-venv
-source sbp-venv/bin/activate
+python3.11 -m venv ispl-venv
+source ispl-venv/bin/activate
 ```
 
 ## Additional Python Packages
 
-Now that you've activated your venv (right?!?), we need to install some dependencies.  They're in sbplus/tools/requirements.txt
+Now that you've activated your venv (right?!?), we need to install some dependencies.  They're in requirements.txt
 ```
-python -m pip install -r sbplus/tools/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 # Building and Flashing
