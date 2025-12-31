@@ -49,4 +49,14 @@ make fuse flash
 
 Under the sbplus directory are directories with sound projects.  These consist of two pieces - the source code for the AVR in (project)/src and audio assets in audio/.  It's tied together with the program.ispl file.  There's a master makefile in the top level project directory.  Just running make will build both firmware and the project ISPL binary (usually project.sbp or some such).  If you switch the programmer over to SPI flash mode and run make flash, it'll program the Winbond SPI flash on the board.
 
- 
+
+## Permission Issues
+On Linux, add these udev rules:
+
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403", GROUP="plugdev", MODE="0664"
+
+Then reload udev with:
+
+sudo udevadm control --reload-rules
+
+sudo udevadm trigger
